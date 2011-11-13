@@ -1,0 +1,1 @@
+Whist is a game engine for the Romanian version of Whist, described here: http://en.wikipedia.org/wiki/Romanian_whist
