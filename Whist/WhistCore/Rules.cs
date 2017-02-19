@@ -19,13 +19,19 @@ namespace WhistCore
             Suit? trump,
             IEnumerable<Card> hand)
         {
-            // all cards matching initial suit
+            // you can play any cards matching initial suit
             var playableCards = hand.Where(card => card.Suit == initialCard.Suit);
 
             if (!playableCards.Any())
             {
-                // if none, get all trump cards
+                // if none, you can play any trump cards
                 playableCards = hand.Where(card => card.Suit == trump);
+            }
+
+            if (!playableCards.Any())
+            {
+                // if none, you can play any card
+                playableCards = hand;
             }
 
             return playableCards;
