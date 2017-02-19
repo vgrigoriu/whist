@@ -8,17 +8,17 @@ namespace Tests
         [Fact]
         public void ReturnsAllCardsOfTheSameSuitWhenNoTrump()
         {
-            var initialCard = new Card(Rank.Ace, Suit.Spade);
+            var initialCard = new Card(Rank.Ace, Suit.Spades);
             var hand = new[]
             {
-                new Card(Rank.Two, Suit.Club),
-                new Card(Rank.Two, Suit.Diamond),
-                new Card(Rank.Two, Suit.Heart),
-                new Card(Rank.Two, Suit.Spade),
-                new Card(Rank.Five, Suit.Club),
-                new Card(Rank.Five, Suit.Diamond),
-                new Card(Rank.Five, Suit.Heart),
-                new Card(Rank.Five, Suit.Spade),
+                new Card(Rank.Two, Suit.Clubs),
+                new Card(Rank.Two, Suit.Diamonds),
+                new Card(Rank.Two, Suit.Hearts),
+                new Card(Rank.Two, Suit.Spades),
+                new Card(Rank.Five, Suit.Clubs),
+                new Card(Rank.Five, Suit.Diamonds),
+                new Card(Rank.Five, Suit.Hearts),
+                new Card(Rank.Five, Suit.Spades),
             };
 
             var validCards = Rules.GetValidFollowUps(initialCard, null, hand);
@@ -26,8 +26,8 @@ namespace Tests
             Assert.Equal(
                 new[]
                 {
-                    new Card(Rank.Two, Suit.Spade),
-                    new Card(Rank.Five, Suit.Spade),
+                    new Card(Rank.Two, Suit.Spades),
+                    new Card(Rank.Five, Suit.Spades),
                 },
                 validCards);
         }
@@ -35,18 +35,18 @@ namespace Tests
         [Fact]
         public void ReturnsAllTrumpCardsWhenInitialCardMatchesTrump()
         {
-            var initialCard = new Card(Rank.Ace, Suit.Spade);
-            var trump = Suit.Spade;
+            var initialCard = new Card(Rank.Ace, Suit.Spades);
+            var trump = Suit.Spades;
             var hand = new[]
             {
-                new Card(Rank.Two, Suit.Club),
-                new Card(Rank.Two, Suit.Diamond),
-                new Card(Rank.Two, Suit.Heart),
-                new Card(Rank.Two, Suit.Spade),
-                new Card(Rank.Five, Suit.Club),
-                new Card(Rank.Five, Suit.Diamond),
-                new Card(Rank.Five, Suit.Heart),
-                new Card(Rank.Five, Suit.Spade),
+                new Card(Rank.Two, Suit.Clubs),
+                new Card(Rank.Two, Suit.Diamonds),
+                new Card(Rank.Two, Suit.Hearts),
+                new Card(Rank.Two, Suit.Spades),
+                new Card(Rank.Five, Suit.Clubs),
+                new Card(Rank.Five, Suit.Diamonds),
+                new Card(Rank.Five, Suit.Hearts),
+                new Card(Rank.Five, Suit.Spades),
             };
 
             var validCards = Rules.GetValidFollowUps(initialCard, trump, hand);
@@ -54,8 +54,8 @@ namespace Tests
             Assert.Equal(
                 new[]
                 {
-                    new Card(Rank.Two, Suit.Spade),
-                    new Card(Rank.Five, Suit.Spade),
+                    new Card(Rank.Two, Suit.Spades),
+                    new Card(Rank.Five, Suit.Spades),
                 },
                 validCards);
         }
@@ -63,16 +63,16 @@ namespace Tests
         [Fact]
         public void ReturnsAllTrumpCardsWhenNoInitialSuitInHand()
         {
-            var initialCard = new Card(Rank.Ace, Suit.Heart);
-            var trump = Suit.Diamond;
+            var initialCard = new Card(Rank.Ace, Suit.Hearts);
+            var trump = Suit.Diamonds;
             var hand = new[]
             {
-                new Card(Rank.Two, Suit.Club),
-                new Card(Rank.Two, Suit.Diamond),
-                new Card(Rank.Two, Suit.Spade),
-                new Card(Rank.Five, Suit.Club),
-                new Card(Rank.Five, Suit.Diamond),
-                new Card(Rank.Five, Suit.Spade),
+                new Card(Rank.Two, Suit.Clubs),
+                new Card(Rank.Two, Suit.Diamonds),
+                new Card(Rank.Two, Suit.Spades),
+                new Card(Rank.Five, Suit.Clubs),
+                new Card(Rank.Five, Suit.Diamonds),
+                new Card(Rank.Five, Suit.Spades),
             };
 
             var validCards = Rules.GetValidFollowUps(initialCard, trump, hand);
@@ -80,8 +80,8 @@ namespace Tests
             Assert.Equal(
                 new[]
                 {
-                    new Card(Rank.Two, Suit.Diamond),
-                    new Card(Rank.Five, Suit.Diamond),
+                    new Card(Rank.Two, Suit.Diamonds),
+                    new Card(Rank.Five, Suit.Diamonds),
                 },
                 validCards);
         }

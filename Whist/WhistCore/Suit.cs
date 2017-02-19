@@ -5,15 +5,15 @@ namespace WhistCore
     public enum Suit
     {
         [Description("♣")]
-        Club,
+        Clubs,
 
         [Description("♦")]
-        Diamond,
+        Diamonds,
 
         [Description("♥")]
-        Heart,
+        Hearts,
 
         [Description("♠")]
-        Spade
+        Spades
     }
 }
